@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap');
+:root{--ink:#0c2233;--teal:#17646e;--sea:#1c8a8a;--amber:#ffb627;--mist:#e9f3f1;--soft:#b9d3d0;--card:rgba(255,255,255,.07);--line:rgba(255,255,255,.16)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Figtree',system-ui,sans-serif;color:var(--mist);line-height:1.65;min-height:100vh;display:flex;flex-direction:column;
+background:linear-gradient(130deg,#0c2233,#124a58,#17646e,#124a58,#0c2233);background-size:300% 300%;animation:flow 22s ease-in-out infinite}
+@keyframes flow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+h1,h2,h3{font-family:'Bricolage Grotesque','Figtree',sans-serif;line-height:1.1}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+
+/* nav */
+header{position:sticky;top:0;z-index:10;background:rgba(12,34,51,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{max-width:1100px;margin:auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.25rem;text-decoration:none}
+.logo span{color:var(--amber)}
+nav ul{list-style:none;display:flex;gap:6px}
+nav a{display:block;padding:8px 16px;border-radius:999px;text-decoration:none;font-weight:500;transition:background .25s,color .25s}
+nav a:hover{background:var(--card)}
+nav a.active{background:var(--amber);color:var(--ink)}
+#menu,.burger{display:none}
+
+/* layout */
+main{flex:1;max-width:1100px;width:100%;margin:auto;padding:64px 24px}
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:center}
+.hello{color:var(--amber);font-weight:600;margin-bottom:10px;animation:rise .9s both}
+.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:800;animation:rise .9s .15s both}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* rotating role text */
+.roles{position:relative;height:2.2em;margin:18px 0 8px;font-size:clamp(1.2rem,3vw,1.7rem);font-weight:600;font-family:'Bricolage Grotesque',sans-serif}
+.roles span{position:absolute;left:0;opacity:0;color:var(--amber);animation:role 9s infinite}
+.roles span:nth-child(2){animation-delay:3s}
+.roles span:nth-child(3){animation-delay:6s}
+@keyframes role{0%{opacity:0;transform:translateY(14px)}6%,28%{opacity:1;transform:none}34%,100%{opacity:0;transform:translateY(-14px)}}
+.lead{max-width:52ch;color:var(--soft);margin-bottom:28px}
+.typed{display:inline-block;overflow:hidden;white-space:nowrap;border-right:3px solid var(--amber);width:0;animation:type 3s steps(24) .6s forwards,blink .8s step-end infinite}
+@keyframes type{to{width:24ch}}
+@keyframes blink{50%{border-color:transparent}}
+
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 26px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--amber);transition:transform .2s,background .2s}
+.btn.fill{background:var(--amber);color:var(--ink)}
+.btn:hover{transform:translateY(-3px)}
+
+/* photo frame: replace the initials with your image (see about.html / index.html comments) */
+.photo{width:min(320px,80%);aspect-ratio:1;margin:auto;border-radius:50%;border:3px solid var(--amber);padding:10px;animation:float 6s ease-in-out infinite}
+.photo .frame{width:100%;height:100%;border-radius:50%;overflow:hidden;background:var(--card);display:grid;place-items:center;text-align:center;font-family:'Bricolage Grotesque',sans-serif;font-size:4rem;font-weight:800;color:var(--soft)}
+.photo .frame small{display:block;font-family:'Figtree',sans-serif;font-size:.8rem;font-weight:400;margin-top:4px}
+.photo img{width:100%;height:100%;object-fit:cover}
+@keyframes float{50%{transform:translateY(-12px)}}
+
+/* inner pages */
+.page-title{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:10px;animation:rise .8s both}
+.sub{color:var(--soft);max-width:60ch;margin-bottom:40px}
+.about{display:grid;grid-template-columns:1fr 1.6fr;gap:48px;align-items:start}
+.about p{margin-bottom:16px;color:var(--soft)}
+.about h3{margin:26px 0 10px;color:var(--mist)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.tags li{padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:.95rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.card{padding:28px;border:1px solid var(--line);border-radius:18px;background:var(--card);transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-6px);border-color:var(--amber)}
+.card h3{font-size:1.35rem;margin-bottom:10px}
+.card p{color:var(--soft)}
+.card .tags{margin-top:16px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1.3fr;gap:48px}
+.contact ul{list-style:none}
+.contact li{margin-bottom:18px}
+.contact li b{display:block;color:var(--amber)}
+form{display:grid;gap:14px}
+label{font-weight:500;font-size:.95rem}
+input,textarea{width:100%;margin-top:6px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(12,34,51,.55);color:var(--mist);font:inherit}
+input:focus,textarea:focus{outline:2px solid var(--amber);border-color:transparent}
+textarea{min-height:140px;resize:vertical}
+button.btn{font:inherit;font-weight:600;cursor:pointer;justify-self:start}
+
+footer{text-align:center;padding:24px;color:var(--soft);border-top:1px solid var(--line);font-size:.9rem}
+
+/* responsive */
+@media(max-width:820px){
+ .hero,.about,.contact{grid-template-columns:1fr;gap:36px}
+ .hero .photo{order:-1;width:min(240px,70%)}
+ .burger{display:block;cursor:pointer;padding:8px}
+ .burger i,.burger i::before,.burger i::after{display:block;width:26px;height:3px;background:var(--mist);border-radius:2px;position:relative;content:""}
+ .burger i::before{position:absolute;top:-8px}.burger i::after{position:absolute;top:8px}
+ nav{position:absolute;left:0;right:0;top:100%;background:rgba(12,34,51,.97);max-height:0;overflow:hidden;transition:max-height .35s}
+ nav ul{flex-direction:column;padding:8px 24px 18px}
+ #menu:checked~nav{max-height:320px}
+ main{padding:44px 20px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.typed{width:auto;border:0}.roles span:first-child{opacity:1}}
